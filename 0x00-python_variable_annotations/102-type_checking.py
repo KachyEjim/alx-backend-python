@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""A python file"""
-from typing import Tuple, List
+"""Use mypy to validate the following piece of code
+and apply any necessary changes.
+"""
+
+from typing import Tuple, List, Any
 
 
-def zoom_array(lst: Tuple, factor: int = 2) -> List[int]:
-    """TYPE ANNOTATED FUNCTION"""
-    zoomed_in: List = [item for item in lst for _ in range(factor)]
+def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """Corrected annotations"""
+    zoomed_in: List = [item for item in lst for i in range(factor)]
     return zoomed_in
 
 
