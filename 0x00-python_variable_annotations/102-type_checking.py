@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
 """A python file"""
-from typing import List, Tuple, Union
+from typing import Tuple, List, Union
 
 
-def zoom_array(lst: List[int], factor: Union[int, float] = 2) -> List[int]:
-    """Typee annoatated function"""
-    zoomed_in: List[int] = [
-        item
-        for item in lst
-        for _ in range(int(factor))  # Convert factor to int for range
-    ]
+def zoom_array(lst: Tuple[int, ...], factor: Union[int, float] = 2) -> List[int]:
+    if not isinstance(factor, int):
+        factor = int(round(factor))  # Convert factor to integer
+
+    zoomed_in: List[int] = [item for item in lst for _ in range(factor)]
     return zoomed_in
 
 
-array = [12, 72, 91]
+array = (12, 72, 91)
 
 zoom_2x = zoom_array(array)
 
